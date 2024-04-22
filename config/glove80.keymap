@@ -116,6 +116,30 @@
         };
     };
 
+    combos {
+        compatible = "zmk,combos";
+        combo_oe {
+            timeout-ms = <50>;
+            key-positions = <25 31>;
+            bindings = <&kp DE_O_UMLAUT>;
+        };
+        combo_ue {
+            timeout-ms = <50>;
+            key-positions = <25 29>;
+            bindings = <&kp DE_U_UMLAUT>;
+        };
+        combo_ae {
+            timeout-ms = <50>;
+            key-positions = <25 35>;
+            bindings = <&kp DE_A_UMLAUT>;
+        };
+        combo_sz {
+            timeout-ms = <50>;
+            key-positions = <28 36>;
+            bindings = <&kp DE_SZ>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -134,8 +158,8 @@
                     &kp DE_LT         &kp N1            &kp N2           &kp N3           &kp N4           &kp N5                                                                                             &kp N6          &kp N7         &kp N8        &kp N9        &kp N0               &kp MINUS
                     &kp TAB           &kp Q             &kp W            &kp E            &kp R            &kp T                                                                                              &kp Y           &kp U          &kp I         &kp O         &kp P                &kp DE_U_UMLAUT
                     &kp CAPSLOCK      &hrm LGUI A       &hrm LALT S      &hrm LCTRL D     &hrm LSHFT F     &hrm RGUI G                                                                                        &hrm RGUI H     &hrm LSHFT J   &hrm LCTRL K  &hrm LALT L   &hrm LGUI DE_COLON   &kp DE_MINUS
-                    &none             &kp DE_CARET      &kp Z            &kp X            &kp C            &kp V          &kp LSHFT        &kp LALT      &kp RGUI     &kp RGUI    &kp RCTRL   &kp RSHFT       &kp B           &kp N          &kp M         &kp COMMA     &kp DOT              &none
-                    &magic MAGIC 0    &kp HOME          &kp END          &none            &none                           &lt NAV SPACE    &kp TAB       &kp LGUI     &kp DEL     &kp BSPC    &lt SYM RET                     &sk LSHFT      &none         &kp LBKT      &kp RBKT             &none
+                    &none             &kp DE_CARET      &kp Z            &kp X            &kp C            &kp V          &kp LSHFT        &kp LALT      &sk LCTRL    &kp RGUI    &kp RCTRL   &kp RSHFT       &kp B           &kp N          &kp M         &kp COMMA     &kp DOT              &none
+                    &magic MAGIC 0    &kp HOME          &kp END          &none            &none                           &lt NAV SPACE    &kp TAB       &key_repeat  &kp DEL     &kp BSPC    &lt SYM RET                     &sk LSHFT      &none         &kp LBKT      &kp RBKT             &none
             >;
         };
 
@@ -145,7 +169,7 @@
                     &trans            &trans              &trans          &trans          &trans               &trans                                                                                  &trans               &trans               &trans               &trans        &trans              &trans
                     &trans            &kp DE_QUESTION     &trans          &kp DE_EQUAL    &trans               &kp DE_PERCENT                                                                          &kp DE_EXCLAMATION   &kp DE_LEFT_BRACKET  &kp DE_RIGHT_BRACKET &trans        &kp DE_PIPE         &trans
                     &trans            &kp DE_AMPERSAND    &kp DE_STAR     &kp DE_SLASH    &kp DE_DOUBLE_QUOTES &kp DE_GRAVE                                                                            &kp DE_SLASH         &kp DE_LPAR          &kp DE_RPAR          &kp DE_HASH   &kp DE_UNDERSCORE   &trans
-                    &trans            &trans              &kp DE_SQT      &kp DE_ACUTE    &kp DE_LT            &kp DE_GT       &trans      &trans      &trans      &trans      &trans      &trans      &trans               &kp DE_LEFT_BRACE    &kp DE_RIGHT_BRACE   &trans        &trans              &trans
+                    &trans            &trans              &kp DE_SQT      &kp DE_ACUTE    &kp DE_LT            &kp DE_GT       &trans      &trans      &trans      &trans      &trans      &trans      &trans               &kp LA(N8)           &kp LA(N9)         &trans        &trans              &trans
                     &trans            &trans              &trans          &trans          &trans                               &trans      &trans      &trans      &trans      &trans      &trans                           &trans               &trans               &trans        &trans              &trans
             >;
         };
