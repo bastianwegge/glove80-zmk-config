@@ -72,6 +72,12 @@
             require-prior-idle-ms = <150>;
             bindings = <&kp>, <&kp>;
         };
+        comsemi: comma_semi {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DE_COLON>, <&kp SEMI>;
+            mods = <(MOD_LGUI|MOD_LSFT|MOD_RGUI|MOD_RSFT)>;
+        };
     };
 
     conditional_layers {
@@ -154,6 +160,25 @@
             bindings = <&kp DE_SZ>;
             layers = <0>;
         };
+        combo_jk {
+            timeout-ms = <50>;
+            key-positions = <41 42>;
+            bindings = <&kp ESC>;
+            layers = <0>;
+        };
+        combo_sticky_rgui {
+            timeout-ms = <50>;
+            key-positions = <37 38>;
+            bindings = <&sk RGUI>;
+            layers = <0>;
+        };
+        // maybe after trying esc?
+        // combo_sticky_rgui {
+        //     timeout-ms = <50>;
+        //     key-positions = <41 42>;
+        //     bindings = <&sk LGUI>;
+        //     layers = <0>;
+        // };
     };
 
     keymap {
@@ -171,11 +196,11 @@
 
             bindings = <
                     &kp F1            &kp F2            &kp F3           &kp F4           &kp F5                                                                                                              &kp F6          &kp F7         &kp F8               &kp F9        &kp F10
-                    &kp DE_LT         &kp N1            &kp N2           &kp N3           &kp N4           &kp N5                                                                                             &kp N6          &kp N7         &kp N8               &kp N9        &kp N0               &kp MINUS
-                    &kp TAB           &kp Q             &kp W            &kp E            &kp R            &kp T                                                                                              &kp Y           &kp U          &kp I                &kp O         &kp P                &kp DE_U_UMLAUT
-                    &kp CAPSLOCK      &hrm LGUI A       &hrm LALT S      &hrm LCTRL D     &hrm LSHFT F     &hrm RGUI G                                                                                        &hrm RGUI H     &hrm LSHFT J   &hrm LCTRL K         &hrm LALT L   &hrm LGUI DE_COLON   &kp DE_MINUS
-                    &none             &kp DE_CARET      &kp Z            &kp X            &kp C            &kp V          &kp LSHFT        &kp LALT      &sk LCTRL    &kp RGUI    &kp RCTRL   &kp RSHFT       &kp B           &kp N          &kp M                &kp COMMA     &kp DOT              &none
-                    &magic MAGIC 0    &kp HOME          &kp END          &none            &none                           &lt NAV SPACE    &kp TAB       &key_repeat  &kp DEL     &kp BSPC    &lt SYM RET                     &sk LSHFT      &kp LG(LS(SPACE))    &kp LBKT      &kp RBKT             &none
+                    &kp DE_LT         &kp N1            &kp N2           &kp N3           &kp N4           &kp N5                                                                                             &kp N6          &kp N7         &kp N8               &kp N9        &kp N0               &kp DE_TILDE 
+                    &kp TAB           &kp Q             &kp W            &kp E            &kp R            &kp T                                                                                              &kp Y           &kp U          &kp I                &kp O         &kp P                &kp DE_PLUS
+                    &kp CAPSLOCK      &hrm LGUI A       &hrm LALT S      &hrm LCTRL D     &hrm LSHFT F     &kp G                                                                                              &kp H           &hrm LSHFT J   &hrm LCTRL K         &hrm LALT L   &hrm LGUI DE_COLON   &kp DE_MINUS
+                    &none             &kp DE_CARET      &kp Z            &kp X            &kp C            &kp V          &sk LSHFT        &kp LALT      &sk LCTRL    &none       &kp RGUI    &kp RSHFT       &kp B           &kp N          &kp M                &kp COMMA     &kp DOT              &none
+                    &magic MAGIC 0    &none             &none            &none            &none                           &lt NAV SPACE    &kp TAB       &key_repeat  &kp DEL     &kp BSPC    &lt SYM RET                     &sk LSHFT      &kp LG(LS(SPACE))    &kp LBKT      &kp RBKT             &none
             >;
         };
 
@@ -192,12 +217,12 @@
 
         nav_layer {
             bindings = <
-                    &trans            &trans              &trans          &trans              &trans                                                                                                                    &trans           &trans        &trans        &trans   &trans
-                    &trans            &trans              &trans          &trans              &trans               &trans                                                                                  &trans       &trans           &trans        &trans        &trans   &trans
-                    &trans            &trans              &trans          &trans              &trans               &trans                                                                                  &kp LG(LEFT) &kp PG_DN        &kp PG_UP     &kp LG(RIGHT) &trans   &trans
-                    &trans            &trans              &trans          &trans              &trans               &trans                                                                                  &kp LEFT     &kp DOWN         &kp UP        &kp RIGHT     &trans   &trans
-                    &trans            &trans              &trans          &trans              &trans               &trans          &trans      &trans      &trans      &trans      &trans      &trans      &trans       &kp LC(LS(TAB))  &kp LC(TAB)   &trans        &trans   &trans
-                    &trans            &trans              &trans          &trans              &trans                               &trans      &trans      &trans      &trans      &trans      &trans                   &trans           &trans        &trans        &trans   &trans
+                    &trans            &trans              &trans          &trans              &trans                                                                                                                    &trans           &trans        &trans          &trans   &trans
+                    &trans            &trans              &trans          &trans              &trans               &trans                                                                                  &trans       &trans           &trans        &trans          &trans   &trans
+                    &trans            &trans              &trans          &trans              &trans               &trans                                                                                  &kp LG(LEFT) &kp PG_DN        &kp PG_UP     &kp LG(RIGHT)   &trans   &trans
+                    &trans            &trans              &trans          &trans              &trans               &trans                                                                                  &kp LEFT     &kp DOWN         &kp UP        &kp RIGHT       &trans   &trans
+                    &trans            &trans              &trans          &trans              &trans               &trans          &trans      &trans      &trans      &trans      &trans      &trans      &trans       &kp LC(LS(TAB))  &kp LC(TAB)   &trans          &trans   &trans
+                    &trans            &trans              &trans          &trans              &trans                               &trans      &trans      &trans      &trans      &trans      &trans                   &trans           &trans        &trans          &trans   &trans
             >;
         };
 
