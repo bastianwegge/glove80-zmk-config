@@ -14,7 +14,7 @@
 #include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/rgb.h>
 
-#define HYPER LC(LS(LG(LALT)))
+// #define HYPER LC(LS(LG(LALT)))
 
 // layers
 #define DEFAULT 0
@@ -77,6 +77,22 @@
             #binding-cells = <0>;
             bindings = <&kp DE_COLON>, <&kp SEMI>;
             mods = <(MOD_LGUI|MOD_LSFT|MOD_RGUI|MOD_RSFT)>;
+        };
+
+        mod_morph_colon: mod_morph_colon {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DE_COLON>, <&kp DE_SEMICOLON>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+
+        hm_colon_morph: hm_colon_morph {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <0>;
+            flavor = "balanced";
+            bindings = <&kp>, <&mod_morph_colon>;
         };
     };
 
@@ -195,12 +211,12 @@
             // | MAGIC | HOME| END | LEFT | RIGHT|      | SPACE | DEL   | LCMD  | | RALT  | BSPC  | RET   |      |  UP   | DOWN  |  [   |   ]   | PGDN |
 
             bindings = <
-                    &kp F1            &kp F2            &kp F3           &kp F4           &kp F5                                                                                                              &kp F6          &kp F7         &kp F8               &kp F9        &kp F10
-                    &kp DE_LT         &kp N1            &kp N2           &kp N3           &kp N4           &kp N5                                                                                             &kp N6          &kp N7         &kp N8               &kp N9        &kp N0               &kp DE_TILDE 
-                    &kp TAB           &kp Q             &kp W            &kp E            &kp R            &kp T                                                                                              &kp Y           &kp U          &kp I                &kp O         &kp P                &kp DE_PLUS
-                    &kp CAPSLOCK      &hrm LGUI A       &hrm LALT S      &hrm LCTRL D     &hrm LSHFT F     &kp G                                                                                              &kp H           &hrm LSHFT J   &hrm LCTRL K         &hrm LALT L   &hrm LGUI DE_COLON   &kp DE_MINUS
-                    &none             &kp DE_CARET      &kp Z            &kp X            &kp C            &kp V          &sk LSHFT        &kp LALT      &sk LCTRL    &none       &kp RGUI    &kp RSHFT       &kp B           &kp N          &kp M                &kp COMMA     &kp DOT              &none
-                    &magic MAGIC 0    &none             &none            &none            &none                           &lt NAV SPACE    &kp TAB       &key_repeat  &kp DEL     &kp BSPC    &lt SYM RET                     &sk LSHFT      &kp LG(LS(SPACE))    &kp LBKT      &kp RBKT             &none
+                    &kp F1            &kp F2            &kp F3           &kp F4           &kp F5                                                                                                              &kp F6          &kp F7             &kp F8               &kp F9        &kp F10
+                    &kp DE_LT         &kp N1            &kp N2           &kp N3           &kp N4           &kp N5                                                                                             &kp N6          &kp N7             &kp N8               &kp N9        &kp N0               &kp DE_TILDE
+                    &kp TAB           &kp Q             &kp W            &kp E            &kp R            &kp T                                                                                              &kp Y           &kp U              &kp I                &kp O         &kp P                &kp DE_PLUS
+                    &kp CAPSLOCK      &hrm LGUI A       &hrm LALT S      &hrm LCTRL D     &hrm LSHFT F     &kp G                                                                                              &kp H           &hrm LSHFT J       &hrm LCTRL K         &hrm LALT L   &hm_colon_morph LGUI 0     &kp DE_MINUS
+                    &none             &kp DE_CARET      &kp Z            &kp X            &kp C            &kp V          &sk LSHFT        &kp LALT      &sk LCTRL    &none       &kp RGUI    &kp RSHFT       &kp B           &kp N              &kp M                &kp COMMA     &kp DOT              &none
+                    &magic MAGIC 0    &none             &none            &none            &kp LG(SPACE)                   &lt NAV SPACE    &kp TAB       &key_repeat  &kp DEL     &kp BSPC    &lt SYM RET                     &kp LG(LS(SPACE))  &none   &kp LBKT      &kp RBKT             &none
             >;
         };
 
