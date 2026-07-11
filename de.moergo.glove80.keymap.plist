@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>de.moergo.glove80.keymap</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/Users/luke/dev/glove80-zmk-config/show-keymap.sh</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>KeepAlive</key>
+    <true/>
+    <key>StandardOutPath</key>
+    <string>/tmp/glove80-keymap.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/glove80-keymap.log</string>
+</dict>
+</plist>

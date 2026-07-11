@@ -1,0 +1,44 @@
+parse_config:
+  # Map German (keys_de.h) aliases to readable glyphs so they don't render
+  # as raw "(ZMK HID USAGE ...)" blobs.
+  raw_binding_map:
+    "&kp DE_A_UMLAUT": "Ä"
+    "&kp DE_O_UMLAUT": "Ö"
+    "&kp DE_U_UMLAUT": "Ü"
+    "&kp DE_SZ": "ß"
+    "&kp DE_ACUTE": "´"
+    "&kp DE_AMPERSAND": "&"
+    "&kp DE_CARET": "^"
+    "&kp DE_COLON": ":"
+    "&kp DE_DOUBLE_QUOTES": "\""
+    "&kp DE_EQUAL": "="
+    "&kp DE_EXCLAMATION": "!"
+    "&kp DE_GRAVE": "`"
+    "&kp DE_GT": ">"
+    "&kp DE_HASH": "#"
+    "&kp DE_LPAR": "("
+    "&kp DE_LT": "<"
+    "&kp DE_MINUS": "-"
+    "&kp DE_PERCENT": "%"
+    "&kp DE_PIPE": "|"
+    "&kp DE_PLUS": "+"
+    "&kp DE_QUESTION": "?"
+    "&kp DE_RPAR": ")"
+    "&kp DE_SEMICOLON": ";"
+    "&kp DE_SLASH": "/"
+    "&kp DE_SQT": "'"
+    "&kp DE_STAR": "*"
+    "&kp DE_TILDE": "~"
+    "&kp DE_UNDERSCORE": "_"
+
+draw_config:
+  # Fit both halves + all layers comfortably on an external monitor.
+  key_h: 60
+  key_w: 60
+  # Lay the 5 layers out in 2 columns so the whole thing is landscape and
+  # fits a screen without being squished into a tall strip.
+  n_columns: 2
+  # Don't overlay combos as spaghetti connectors on the layers; render each
+  # combo in its own separate mini-diagram section instead.
+  separate_combo_diagrams: true
+  combo_diagrams_scale: 3
